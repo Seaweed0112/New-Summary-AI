@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>News Summary AI</title>
+    </head>
+    <body>
+        <form method="POST">
+            <label for="message">News Article URL:</label>
+            <input type="text" name="message" id="message" />
+            <button type="submit">Submit</button>
+        </form>
+        {% if news_title %}
+        <h2>News Title:</h2>
+        <h3>{{ news_title }}</h3>
+        {% endif %} {% if message %}
+        <h2>Summary:</h2>
+        <p>{{ message }}</p>
+        {% endif %}
+    </body>
+</html>
