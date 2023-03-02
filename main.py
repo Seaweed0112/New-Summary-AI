@@ -1,4 +1,4 @@
-from flask import Flask, request, abort, render_template
+from flask import Flask, request, render_template
 import os
 import openai
 import article_parser
@@ -11,10 +11,10 @@ app = Flask(__name__)
 @app.route('/', methods=['GET', 'POST'])
 def home():
     message = ""
+    result = ""
+    title = ""
     if request.method == 'POST':
         message = request.form['message']
-        result = ""
-        title = ""
         try:
             title, content = article_parser.parse(
                 url=message, output='markdown', timeout=5)
